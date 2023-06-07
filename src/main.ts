@@ -9,6 +9,7 @@ const createMobMemberBtn = document.querySelector('#add-mob-member');
 const getMobMemberBtn = document.querySelector('#get-mobmember');
 const deleteMobBtn = document.querySelector('#delete-mob');
 const deleteMobMemberBtn = document.querySelector('#delete-mobmember');
+const resultParagraph = <HTMLElement>document.querySelector('.res-paragraph');
 
 const fetchMobs = async () => {
   const mobs = (
@@ -17,6 +18,12 @@ const fetchMobs = async () => {
       url: baseUrl + 'mobs',
     })
   ).data;
+
+  if (mobs.length === 0) {
+    resultParagraph.textContent = "Hey it would seem like there are no mobs. Maybe add some?";
+  } else {
+    resultParagraph.textContent = mobs;
+  }
 
   console.log(mobs);
 };
@@ -28,6 +35,7 @@ const fetchMob = async (id: string) => {
       url: `${baseUrl}mobs/${id}`,
     })
   ).data;
+  document.body.append(mob);
   console.log(mob);
 };
 
@@ -47,6 +55,7 @@ const fetchMobMember = async (mobId: string, memberId: string) => {
     method: 'get',
     url: `${baseUrl}mobs/${mobId}/${memberId}`
   })).data;
+  document.body.append(mobMember);
   console.log(mobMember);
 };
 
