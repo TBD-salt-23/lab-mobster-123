@@ -59,12 +59,12 @@ const fetchMobMember = async (mobId: string, memberId: string) => {
   console.log(mobMember);
 };
 
-const createMobMember = async (mobId: string, memberName: string) => {
+const createMobMember = async (mobId: string, name: string) => {
   const createdMember = await axios({
     method: 'post',
     url: `${baseUrl}mobs/${mobId}`,
     data: {
-      name: memberName
+      memberName : name,
     }
   });
   console.log(createdMember);
