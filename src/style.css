@@ -28,7 +28,26 @@ h1 {
   line-height: 1.1;
 }
 
-.base-section {}
+h2 {
+  margin: 0;
+}
+
+main {
+  display: grid;
+  grid-template-rows: 2fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.button__section {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.button__section> :nth-child(odd) {
+  margin-top: 10px;
+}
 
 .get-mobs {
   display: flex;
